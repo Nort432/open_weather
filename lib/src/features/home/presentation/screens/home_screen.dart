@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
             )));
 
     return BlocBuilder<RemoteWeatherBloc, RemoteWeatherState>(
-        builder: (_, state) {
+        builder: (context, state) {
           if (state is RemoteWeatherLoading) {
             return loading;
           }
@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
             return const SizedBox();
           }
           if (state is RemoteWeatherDone) {
-            return HomeScaffoldWidget(weatherEntity: state.weatherEntity);
+            return HomeScaffoldWidget(weatherEntity: state.weatherEntity, isShowDays: state.isShowDays,);
           }
           return const SizedBox();
         });

@@ -10,3 +10,21 @@ abstract class RemoteWeatherEvent extends Equatable {
 class FetchWeatherEvent extends RemoteWeatherEvent {
   const FetchWeatherEvent();
 }
+
+class PressCardDayEvent extends RemoteWeatherEvent {
+  const PressCardDayEvent(this.dayEntity);
+
+  final DayEntity dayEntity;
+
+  @override
+  List<Object> get props => [dayEntity];
+}
+
+class ChoiceModeEvent extends RemoteWeatherEvent {
+  const ChoiceModeEvent(this.name);
+
+  final String name;
+
+  @override
+  List<Object> get props => [name];
+}

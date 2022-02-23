@@ -7,6 +7,14 @@ class ForecastEntity extends Equatable {
   });
    final List<ForecastDayEntity> forecastDay;
 
+  ForecastEntity copyWith({
+    final List<ForecastDayEntity>? forecastDay,
+  }) {
+    return ForecastEntity(
+        forecastDay: forecastDay ?? this.forecastDay,
+    );
+  }
+
   @override
   List<Object?> get props => [forecastDay];
 

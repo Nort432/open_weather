@@ -11,24 +11,26 @@ class WeatherEntity extends Equatable {
     required this.current,
     required this.forecast,
   });
-   final LocationEntity location;
-   final CurrentEntity current;
-   final ForecastEntity forecast;
+
+  final LocationEntity location;
+  final CurrentEntity current;
+  final ForecastEntity forecast;
+
+  WeatherEntity copyWith({
+    final LocationEntity? location,
+     final CurrentEntity? current,
+     final ForecastEntity? forecast,
+  }) {
+    return WeatherEntity(
+        location: location ?? this.location,
+        current: current ?? this.current,
+        forecast: forecast ?? this.forecast
+    );
+  }
 
   @override
-  List<Object?> get props => [location, current, forecast];
+  List<Object> get props => [location, current, forecast];
 
   @override
   bool get stringify => true;
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -4,7 +4,7 @@ import '../../config/app_consts/app_consts.dart';
 
 class WeatherParams {
   final String apiKey;
-  String city;
+  final String city;
   final String days;
 
   WeatherParams({
@@ -12,4 +12,17 @@ class WeatherParams {
     this.city = AppApi.defaultCity,
     this.days = AppApi.defaultDays
   });
+
+  WeatherParams copyWith({
+    final String? apiKey,
+    final String? city,
+    final String? days,
+
+  }) {
+    return WeatherParams(
+      apiKey: apiKey ?? this.apiKey,
+      city: city ?? this.city,
+      days: days ?? this.days
+    );
+  }
 }

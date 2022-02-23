@@ -12,12 +12,22 @@ class RemoteWeatherLoading extends RemoteWeatherState {
 }
 
 class RemoteWeatherDone extends RemoteWeatherState {
-  const RemoteWeatherDone(this.weatherEntity);
+  const RemoteWeatherDone({required this.weatherEntity, this.isShowDays = true});
 
   final WeatherEntity weatherEntity;
+  final bool isShowDays;
 
   @override
-  List<Object> get props => [weatherEntity];
+  List<Object?> get props => [weatherEntity, isShowDays];
+}
+
+class RemoteWeatherNothing extends RemoteWeatherState {
+  const RemoteWeatherNothing(this.day);
+
+  final DayEntity day;
+
+  @override
+  List<Object?> get props => [day];
 }
 
 class RemoteWeatherError extends RemoteWeatherState {

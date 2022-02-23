@@ -13,6 +13,18 @@ class ForecastDayEntity extends Equatable {
    final DayEntity day;
    final List<HourEntity> hours;
 
+  ForecastDayEntity copyWith(
+  final String? date,
+  final DayEntity? day,
+  final List<HourEntity>? hours,
+  ) {
+    return ForecastDayEntity(
+    date: date ?? this.date,
+        day: day ?? this.day,
+        hours: hours ?? this.hours
+    );
+  }
+
   @override
   List<Object?> get props => [date, day, hours];
 
